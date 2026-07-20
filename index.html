@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Netflix Authentication</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="loginStyle.css">
+
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <!-- navbar -->
+
+    <header class="hero">
+
+
+        <nav class="navbar">
+
+
+            <!-- Netflix Logo -->
+            <h1 class="netflix-logo">
+                NETFLIX
+            </h1>
+
+
+            <div class="nav-right">
+
+
+                <select class="language">
+
+                    <option>English</option>
+                    <option>தமிழ்</option>
+                    <option>Hindi</option>
+
+                </select>
+
+
+
+                <button id="loginBtn">
+                    Sign In
+                </button>
+
+
+
+            </div>
+
+
+        </nav>
+
+
+
+
+        <!-- <!- HERO CONTENT -->
+
+
+        <div class="hero-content">
+
+
+            <h1>
+                Unlimited Movies,
+                <br>
+                TV Shows & More
+            </h1>
+
+
+            <p>
+                Watch anywhere. Cancel anytime.
+            </p>
+
+
+
+            <h3>
+                Ready to watch? Enter your email to create or restart your membership.
+            </h3>
+
+
+
+            <div class="email-box">
+
+
+                <input type="email" id="email" placeholder="Email Address" required>
+
+
+
+                <button id="getStarted">
+
+                    Get Started
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                </button>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </header>
+
+
+
+
+
+    <!-- ================= TRENDING ================= -->
+
+
+    <section class="trending">
+
+
+        <div class="section-title">
+
+            <h2>
+                Trending Now
+            </h2>
+
+        </div>
+
+
+
+
+        <div class="movie-slider">
+
+
+            <div class="movie-card">
+
+                <img src="loginImages/movie1.jpg">
+
+            </div>
+
+
+
+            <div class="movie-card">
+
+                <img src="loginImages/movie2.jpg">
+
+            </div>
+
+
+
+
+            <div class="movie-card">
+
+                <img src="loginImages/movie3.jpg">
+
+            </div>
+
+
+
+
+            <div class="movie-card">
+
+                <img src="loginImages/movie4.jpg">
+
+            </div>
+
+
+
+
+            <div class="movie-card">
+
+                <img src="loginImages/movie5.jpg">
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+    <!-- ================= FEATURES ================= -->
+
+
+    <section class="features">
+
+
+        <h2>
+            Why Choose Us?
+        </h2>
+
+
+
+        <div class="feature-container">
+
+
+
+            <div class="feature-card">
+
+
+                <i class="fa-solid fa-tv"></i>
+
+                <h3>
+                    Watch on TV
+                </h3>
+
+                <p>
+                    Enjoy your favourite movies on Smart TVs, Playstation and more.
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="feature-card">
+
+
+                <i class="fa-solid fa-download"></i>
+
+
+                <h3>
+                    Download Shows
+                </h3>
+
+
+                <p>
+                    Download your favourite content and watch offline anytime.
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="feature-card">
+
+
+                <i class="fa-solid fa-mobile-screen"></i>
+
+
+                <h3>
+                    Watch Anywhere
+                </h3>
+
+
+                <p>
+                    Watch on your mobile, tablet, laptop and television.
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="feature-card">
+
+
+                <i class="fa-solid fa-child"></i>
+
+
+                <h3>
+                    Kids Profile
+                </h3>
+
+
+                <p>
+                    Create a separate profile for children with parental controls.
+                </p>
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+    <!-- ================= FAQ ================= -->
+
+
+    <section class="faq">
+
+
+        <h2>
+            Frequently Asked Questions
+        </h2>
+
+
+
+
+        <div class="faq-container">
+
+
+
+            <button class="accordion">
+
+                What is Netflix?
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+
+
+            <div class="panel">
+
+                <p>
+                    Netflix is a streaming platform where users can watch movies and TV shows online.
+                </p>
+
+            </div>
+
+
+
+
+
+            <button class="accordion">
+
+                How much does Netflix cost?
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+
+
+            <div class="panel">
+
+                <p>
+                    Plans start at ₹149 and vary depending on the subscription.
+                </p>
+
+            </div>
+
+
+
+
+
+
+            <button class="accordion">
+
+                Where can I watch?
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+
+
+
+            <div class="panel">
+
+                <p>
+                    You can watch on Smart TVs, phones, tablets, laptops and desktops.
+                </p>
+
+            </div>
+
+
+
+
+
+            <button class="accordion">
+
+                Can I cancel anytime?
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+
+
+
+            <div class="panel">
+
+                <p>
+                    Yes. You can cancel your membership anytime without extra charges.
+                </p>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+
+    <footer>
+
+
+
+        <p>
+            Questions? Call 000-800-919-1743
+        </p>
+
+
+
+
+        <div class="footer-links">
+
+
+            <a href="#">
+                FAQ
+            </a>
+
+
+            <a href="#">
+                Help Centre
+            </a>
+
+
+            <a href="#">
+                Privacy
+            </a>
+
+
+            <a href="#">
+                Terms of Use
+            </a>
+
+
+            <a href="#">
+                Account
+            </a>
+
+
+            <a href="#">
+                Jobs
+            </a>
+
+
+            <a href="#">
+                Media Centre
+            </a>
+
+
+            <a href="#">
+                Contact Us
+            </a>
+
+
+
+        </div>
+
+
+
+
+
+        <select class="language footer-language">
+
+
+            <option>
+                English
+            </option>
+
+
+            <option>
+                தமிழ்
+            </option>
+
+
+            <option>
+                Hindi
+            </option>
+
+
+        </select>
+
+
+
+
+        <p class="copyright">
+
+            Netflix Authentication UI © 2026
+
+        </p>
+
+
+
+    </footer>
+
+
+
+
+
+
+    <script>
+
+        // SIGN IN BUTTON
+
+
+        const signInBtn = document.getElementById("loginBtn");
+
+        signInBtn.addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+
+        
+
+
+
+        // GET STARTED BUTTON
+
+
+        const getStartedBtn = document.getElementById("getStarted");
+        const emailInput = document.getElementById("email");
+
+        getStartedBtn.addEventListener("click", function () {
+
+            if (emailInput.value.trim() === "") {
+
+                alert("Please enter your email address.");
+
+                emailInput.focus();
+
+            } else {
+
+                localStorage.setItem("userEmail", emailInput.value);
+
+                window.location.href = "signup.html";
+
+            }
+
+        });
+
+
+
+        // FAQ ACCORDION
+
+
+        const accordions = document.querySelectorAll(".accordion");
+
+        accordions.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const panel = this.nextElementSibling;
+
+                if (panel.style.display === "block") {
+
+                    panel.style.display = "none";
+
+                    this.querySelector("i").classList.remove("fa-minus");
+                    this.querySelector("i").classList.add("fa-plus");
+
+                } else {
+
+                    document.querySelectorAll(".panel").forEach(function (item) {
+                        item.style.display = "none";
+                    });
+
+                    document.querySelectorAll(".accordion i").forEach(function (icon) {
+                        icon.classList.remove("fa-minus");
+                        icon.classList.add("fa-plus");
+                    });
+
+                    panel.style.display = "block";
+
+                    this.querySelector("i").classList.remove("fa-plus");
+                    this.querySelector("i").classList.add("fa-minus");
+
+                }
+
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>

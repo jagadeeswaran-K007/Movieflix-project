@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Netflix - Sign Up</title>
+
+    <link rel="stylesheet" href="loginStyle.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="overlay">
+
+        <!-- Navbar -->
+
+        <nav class="navbar">
+
+            <a href="index.html">
+
+                <img src="./loginImages/logo.png" class="logo" alt="Netflix Logo">
+
+            </a>
+
+        </nav>
+
+        <!-- Signup Card -->
+
+        <div class="signup-card">
+
+            <h1>Create Account</h1>
+
+            <form id="signupForm">
+
+                <!-- Full Name -->
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="input-group">
+
+                    <label>Email Address</label>
+
+                    <input type="email" id="email" placeholder="Enter your email" required>
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="password-box">
+
+                        <input type="password" id="password" placeholder="Create password" required>
+
+                        <i class="fa-solid fa-eye" id="togglePassword"></i>
+
+                    </div>
+
+                </div>
+
+                <!-- Confirm Password -->
+
+                <div class="input-group">
+
+                    <label>Confirm Password</label>
+
+                    <div class="password-box">
+
+                        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+                        <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
+
+                    </div>
+
+                </div>
+
+                <!-- Terms -->
+
+                <div class="terms">
+
+                    <label>
+
+                        <input type="checkbox" id="terms">
+
+                        I agree to the Terms & Conditions
+
+                    </label>
+
+                </div>
+
+                <!-- Button -->
+
+                <button type="submit" class="signup-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Sign In
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // ===============================
+        // SELECTING ELEMENTS
+        // ===============================
+
+        const signupForm = document.getElementById("signupForm");
+
+        const fullName = document.getElementById("name");
+        const email = document.getElementById("email");
+
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        const togglePassword = document.getElementById("togglePassword");
+        const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+        const terms = document.getElementById("terms");
+
+
+        // ===============================
+        // SHOW / HIDE PASSWORD
+        // ===============================
+
+        togglePassword.addEventListener("click", function () {
+
+            if (password.type === "password") {
+
+                password.type = "text";
+
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+
+            }
+
+        });
+
+
+        // ===============================
+        // SHOW / HIDE CONFIRM PASSWORD
+        // ===============================
+
+        toggleConfirmPassword.addEventListener("click", function () {
+
+            if (confirmPassword.type === "password") {
+
+                confirmPassword.type = "text";
+
+                toggleConfirmPassword.classList.remove("fa-eye");
+                toggleConfirmPassword.classList.add("fa-eye-slash");
+
+            }
+
+            else {
+
+                confirmPassword.type = "password";
+
+                toggleConfirmPassword.classList.remove("fa-eye-slash");
+                toggleConfirmPassword.classList.add("fa-eye");
+
+            }
+
+        });
+
+
+        // ===============================
+        // SIGNUP VALIDATION
+        // ===============================
+        signupForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const nameValue = fullName.value.trim();
+            const emailValue = email.value.trim();
+            const passwordValue = password.value.trim();
+            const confirmValue = confirmPassword.value.trim();
+
+            if (
+                nameValue === "" ||
+                emailValue === "" ||
+                passwordValue === "" ||
+                confirmValue === ""
+            ) {
+
+                alert("Please fill all the fields.");
+                return;
+
+            }
+
+            // Redirect to teammate's homepage
+            window.location.href = "profile.html";
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>

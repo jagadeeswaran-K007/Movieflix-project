@@ -1,0 +1,529 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:black;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/*=========================
+ MOBILE NAVBAR
+=========================*/
+
+.mobile-navbar{
+    display: none;
+}
+
+
+@media(max-width:768px){
+
+    .mobile-navbar{
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 20px;
+        background-color: black;
+        color: red;
+
+    }
+
+    .mobile-navbar h2{
+        font-size: 1.8rem;
+    }
+
+    .hamburger{
+
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
+
+    }
+
+
+    /* Mobile Menu */
+
+    .mobile-menu{
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+
+        background-color: #111;
+        color: white;
+
+    }
+
+    .mobile-menu p{
+        cursor: pointer;
+    }
+
+    .mobile-menu.active{
+        display: flex;
+    }
+
+}
+
+.profile-container{
+    width:90%;
+    text-align:center;
+}
+
+.profile-container h1{
+    font-size:4rem;
+    margin-bottom:50px;
+}
+
+.profiles{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.profile-card{
+    cursor:pointer;
+    transition:.3s;
+}
+
+.profile-card:hover{
+    transform:scale(1.08);
+}
+
+.profile-card img{
+    width:180px;
+    height:180px;
+    border-radius:10px;
+    border:4px solid transparent;
+    transition:.3s;
+}
+
+.profile-card:hover img{
+    border:4px solid white;
+}
+
+.profile-card p{
+    margin-top:15px;
+    color:gray;
+    font-size:1.2rem;
+    transition:.3s;
+}
+
+.profile-card:hover p{
+    color:white;
+}
+
+button{
+    margin-top:70px;
+    padding:18px 40px;
+    font-size:1rem;
+    background:transparent;
+    border:1px solid gray;
+    color:gray;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    border-color:white;
+    color:white;
+}
+
+
+/*--------------------
+Responsive
+---------------------*/
+
+@media(max-width:768px){
+
+    .profile-container h1{
+        font-size:2.3rem;
+    }
+
+    .profile-card img{
+        width:130px;
+        height:130px;
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .profiles{
+        gap:20px;
+    }
+
+    .profile-card img{
+        width:110px;
+        height:110px;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+/* =====================================
+        MANAGE PROFILE MODAL
+===================================== */
+
+.manage-modal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.88);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:999;
+
+}
+
+
+.manage-modal.active{
+
+    display:flex;
+
+}
+
+
+
+.modal-content{
+
+    width:850px;
+
+    min-height:450px;
+
+    background:#141414;
+
+    padding:45px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.8);
+
+    animation:popup .3s ease;
+
+}
+
+
+
+@keyframes popup{
+
+    from{
+
+        transform:scale(.85);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+.modal-content h2{
+
+    color:white;
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+#profile-count{
+
+    color:#aaa;
+
+    font-size:16px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* =====================================
+          PROFILE LIST
+===================================== */
+
+
+#profile-list{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.manage-profile-card{
+
+    width:140px;
+    text-align:center;
+    color:white;
+
+}
+
+
+
+.manage-profile-card h3{
+
+    margin-bottom:15px;
+    font-size:18px;
+
+}
+
+
+
+.manage-profile-card img{
+
+    width:110px;
+    height:110px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    transition:.3s;
+
+}
+
+
+
+.manage-profile-card img:hover{
+
+    transform:scale(1.1);
+
+    border:3px solid white;
+
+}
+
+
+
+.manage-profile-card button{
+
+    margin-top:15px;
+
+    padding:8px 25px;
+
+    border-radius:20px;
+
+    background:transparent;
+
+    color:white;
+
+    border:1px solid #555;
+
+    cursor:pointer;
+
+}
+
+
+.manage-profile-card button:hover{
+
+    background:#e50914;
+
+    border-color:#e50914;
+
+}
+
+
+
+#profile-list p{
+
+    width:130px;
+
+    color:white;
+
+    font-size:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+
+
+/* Delete Button Styling */
+
+
+#profile-list button{
+
+    background:transparent;
+
+    color:#aaa;
+
+    border:1px solid #555;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+#profile-list button:hover{
+
+    background:#e50914;
+
+    color:white;
+
+    border-color:#e50914;
+
+}
+
+
+
+/* =====================================
+          ADD PROFILE AREA
+===================================== */
+
+
+#profile-name{
+
+    margin-top:40px;
+
+    width:260px;
+
+    padding:14px 18px;
+
+    background:#222;
+
+    border:1px solid #444;
+
+    color:white;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+
+
+#profile-name:focus{
+
+    border-color:white;
+
+}
+
+
+
+#add-profile-btn{
+
+    margin-left:12px;
+
+    padding:14px 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:white;
+
+    color:black;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+#add-profile-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* =====================================
+              DONE BUTTON
+===================================== */
+
+
+#close-modal{
+
+    margin-top:35px;
+
+    padding:14px 60px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#e50914;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+#close-modal:hover{
+
+    background:#f40612;
+
+    transform:scale(1.05);
+
+}

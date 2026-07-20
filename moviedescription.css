@@ -1,0 +1,510 @@
+/*==================================================
+GOOGLE FONT
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/*==================================================
+GLOBAL STYLES
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#141414;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+}
+
+
+/*==================================================
+NAVBAR
+==================================================*/
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:black;
+}
+
+.navbar h1{
+    color:#E50914;
+    font-size:2.5rem;
+}
+
+.navbar button{
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#E50914;
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.navbar button:hover{
+    transform:translateY(-2px);
+}
+
+
+/*==================================================
+MOVIE CARD
+==================================================*/
+
+.movie-card{
+
+    width:90%;
+    margin:50px auto;
+
+    background:#181818;
+
+    border-radius:25px;
+
+    display:flex;
+    gap:50px;
+
+    padding:50px;
+
+    box-shadow:0 0 40px rgba(0,0,0,.5);
+
+    transition:.3s ease;
+
+}
+
+.movie-card:hover{
+
+    transform:scale(1.01);
+
+}
+
+
+/*==================================================
+MOVIE POSTER
+==================================================*/
+
+.movie-left img{
+
+    width:320px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 30px rgba(255,255,255,.1);
+
+}
+
+
+/*==================================================
+MOVIE DETAILS
+==================================================*/
+
+.movie-right{
+
+    flex:1;
+
+}
+
+.movie-right h1{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+
+.movie-right p{
+
+    margin-bottom:15px;
+
+    line-height:1.8;
+
+    color:#d4d4d4;
+
+}
+
+
+/*==================================================
+MATCH PERCENTAGE
+==================================================*/
+
+#movie-match{
+
+    color:#46D369;
+
+    font-weight:700;
+
+    font-size:1.2rem;
+
+}
+
+
+/*==================================================
+MOVIE RATING
+==================================================*/
+
+#movie-rating{
+
+    color:#FFD700;
+
+    font-weight:600;
+
+}
+
+
+/*==================================================
+ADULT BADGE
+==================================================*/
+
+#movie-adult{
+
+    display:inline-block;
+
+    background:#E50914;
+
+    padding:8px 15px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+
+/*==================================================
+BUTTONS
+==================================================*/
+
+.movie-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+
+}
+
+
+.movie-buttons button{
+
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.3s ease;
+
+}
+
+
+#trailer-btn{
+
+    background:#E50914;
+
+    color:white;
+
+}
+
+
+#my-list-btn{
+
+    background:#333;
+
+    color:white;
+
+}
+
+
+#share-btn{
+
+    background:white;
+
+    color:black;
+
+}
+
+
+.movie-buttons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*==================================================
+TRAILER MODAL
+==================================================*/
+
+.trailer-modal{
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.9);
+
+    z-index:999;
+
+}
+
+
+.trailer-box{
+
+    width:85%;
+    height:80%;
+
+    background:black;
+
+    border-radius:20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+#trailer-frame{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+}
+
+
+/*==================================================
+CLOSE BUTTON
+==================================================*/
+
+.close-trailer{
+
+    position:absolute;
+
+    top:15px;
+    right:25px;
+
+    color:white;
+
+    font-size:40px;
+
+    cursor:pointer;
+
+    z-index:10;
+
+}
+
+/*==================================
+SHARE MODAL
+==================================*/
+
+.share-modal{
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.9);
+
+    z-index:1000;
+
+}
+
+
+.share-box{
+
+    width:350px;
+
+    background:#181818;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+    position:relative;
+
+}
+
+
+.share-box h2{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:#fff;
+
+}
+
+
+.share-box button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.share-box button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+.close-share{
+
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+
+/*==================================================
+RESPONSIVE DESIGN
+==================================================*/
+
+@media(max-width:992px){
+
+    .movie-card{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+    }
+
+    .movie-left img{
+
+        width:280px;
+
+    }
+
+    .movie-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    .navbar{
+
+        padding:20px;
+
+    }
+
+    .navbar h1{
+
+        font-size:2rem;
+
+    }
+
+    .movie-card{
+
+        padding:30px;
+
+    }
+
+    .movie-right h1{
+
+        font-size:2rem;
+
+    }
+
+    .movie-left img{
+
+        width:230px;
+
+    }
+
+    .trailer-box{
+
+        width:95%;
+        height:300px;
+
+    }
+
+}
+
+
+@media(max-width:480px){
+
+    .movie-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .movie-buttons button{
+
+        width:100%;
+
+    }
+
+}

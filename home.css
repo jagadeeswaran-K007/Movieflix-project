@@ -1,0 +1,401 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* ==========================
+   GLOBAL STYLES
+========================== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #141414;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar{
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    gap:40px;
+    padding:20px 60px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background-color:#141414;
+
+}
+
+.navbar h1{
+    color: #E50914;
+    font-size: 2.5rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.navbar ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar li{
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.navbar li:hover{
+    color: #b3b3b3;
+}
+
+/*=================================
+MOBILE NAVBAR
+=================================*/
+
+.mobile-navbar,
+.mobile-menu{
+    display: none;
+}
+
+
+/* Mobile View */
+
+@media(max-width:768px){
+
+    /* Hide Desktop Navbar */
+
+    .navbar{
+        display: none;
+    }
+
+
+    /* Show Mobile Navbar */
+
+    .mobile-navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: black;
+        color: #E50914;
+    }
+
+
+    .hamburger{
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    /* Overlay Menu */
+
+    .mobile-menu{
+
+        display: block;
+
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        width: 70%;
+        height: 100vh;
+
+        background-color: rgba(0,0,0,0.97);
+
+        transition: 0.4s ease-in-out;
+
+        z-index: 999;
+
+        padding: 30px;
+    }
+
+
+    .mobile-menu.active{
+        right: 0;
+    }
+
+
+    /* Close Button */
+
+    .close-btn{
+
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+        text-align: right;
+    }
+
+
+    /* Menu Items */
+
+    .mobile-menu ul{
+
+        list-style: none;
+        margin-top: 50px;
+    }
+
+
+    .mobile-menu li{
+
+        margin-bottom: 30px;
+        font-size: 1.2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    .mobile-menu a{
+
+        text-decoration: none;
+        color: white;
+    }
+
+    .mobile-menu a:hover{
+
+    color: #E50914;
+
+}
+
+
+    .mobile-menu li:hover{
+
+        color: #E50914;
+    }
+
+}
+
+
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+
+.hero{
+    height: 90vh;
+    width: 100%;
+
+    background-image: url("images/bannner1.jpg");
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background-image 0.8s ease-in-out;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-content{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h2{
+    font-size: 4rem;
+    max-width: 800px;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 1.4rem;
+}
+
+
+/* ==========================
+   MOVIE SECTIONS
+========================== */
+
+.movie-section{
+    padding: 20px 40px;
+}
+
+.movie-section h2{
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+
+/* ==========================
+   MOVIE ROW
+========================== */
+
+.movie-row{
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+}
+
+.movie-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movie-row::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+
+.movie-row::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* ==========================
+   MOVIE CARD
+========================== */
+
+.movie-card{
+    min-width: 230px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.movie-card:hover{
+    transform: scale(1.08);
+}
+
+.movie-card img{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.movie-card h3{
+    margin-top: 10px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* ==========================
+   MOVIE LINK
+   (NEW CODE ADDED HERE)
+========================== */
+
+.movie-link{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.movie-link:hover{
+    color: white;
+}
+
+
+
+/* ==========================
+   HOVER EFFECT
+========================== */
+
+.movie-card:hover img{
+    box-shadow: 0 0 25px rgba(255,255,255,0.25);
+}
+
+
+/* ==========================
+   RESPONSIVE DESIGN
+========================== */
+
+@media (max-width: 992px){
+
+    .navbar{
+        padding: 20px;
+    }
+
+    .hero h2{
+        font-size: 2.4rem;
+    }
+
+}
+
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navbar ul{
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero{
+        height: 300px;
+    }
+
+    .hero h2{
+        font-size: 2rem;
+    }
+
+    .movie-card{
+        min-width: 180px;
+    }
+
+    .movie-section{
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width:480px){
+
+    .navbar h1{
+        font-size: 2rem;
+    }
+
+    .hero{
+        height: 250px;
+    }
+
+    .hero h2{
+        font-size: 1.5rem;
+    }
+
+    .movie-card{
+        min-width: 140px;
+    }
+
+    .movie-section h2{
+        font-size: 1.4rem;
+    }
+
+}

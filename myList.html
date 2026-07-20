@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="./TvImages/netflix.png">
+    <title>Netflix | My List</title>
+    <link rel="stylesheet" href="Tv.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+        <div class="logo">NETFLIX</div>
+        <nav class="nav-links">
+           
+            <a href="home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="tvShows.html">TV Shows</a>
+            <a href="myList.html" class="active">My List</a>
+             <a href="profile.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- Mobile Navbar -->
+
+    <nav class="mobile-navbar">
+
+        <h1>NETFLIX</h1>
+        <div class="hamburger" id="hamburger">☰</div>
+
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+
+    <div class="mobile-menu" id="mobile-menu">
+
+        <div class="close-btn" id="close-btn">&times;</div>
+        <ul>
+           
+            <li><a href="home.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="tvShows.html">Tv Shows</a></li>
+            <li><a href="myList.html" class="active">My List</a></li>
+             <li><a href="profile.html">Login</a></li>
+        </ul>
+
+    </div>
+
+    <section class="sub-header">
+        <h1 class="page-title">My List</h1>
+    </section>
+
+    <main class="content-container">
+        <div id="empty-message" class="empty-message" style="display: none;">
+            Your list is currently empty.
+        </div>
+        <div id="mylist-grid" class="shows-grid">
+        </div>
+    </main>
+
+    <!-- Movie Details & Video Player Overlay Modal -->
+    <div id="movie-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal-btn" id="close-modal">&times;</button>
+
+            <!-- Video Player Layer (Hidden until Play clicked) -->
+            <div class="video-player-container" id="video-player-container">
+                <button class="close-player-btn" id="close-player">← Back to Details</button>
+                <video id="main-video" controls>
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Details Info Body -->
+            <div class="modal-body">
+                <div class="modal-poster-side">
+                    <img id="modal-img" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info-side">
+                    <h2 class="modal-title" id="modal-title">Movie Name</h2>
+
+                    <div class="modal-meta-row">
+                        <span id="modal-year">2026</span>
+                        <span class="cert-badge" id="modal-cert">UA-13+</span>
+                        <span id="modal-seasons">1 Season</span>
+                    </div>
+
+                    <p class="modal-desc" id="modal-desc">Small description placeholder.</p>
+
+                    <div class="modal-crews">Genre: <span id="modal-genre">Action</span></div>
+                    <div class="modal-crews">Cast: <span id="modal-cast">Actor 1, Actor 2</span></div>
+
+                    <button class="play-btn" id="modal-play-btn">▶ Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Dataset with 8 distinct genres
+
+        const showsData = [
+            {
+                id: "1",
+                title: "Stranger Things",
+                genre: "sci-fi",
+                image: "./TvImages/Strange.jpg",
+                year: "2022",
+                seasons: "4 Seasons",
+                certificate: "UA-16+",
+                cast: "Millie Bobby Brown, Winona Ryder, David Harbour",
+                description: "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
+                videoUrl: "./TvVideos/Stranger Things5.mp4"
+            },
+            {
+                id: "2",
+                title: "Avatar: The Last Airbender",
+                genre: "Fantasy",
+                image: "./TvImages/Ava.jpg",
+                year: "2026",
+                seasons: "2 Seasons",
+                certificate: "UA-13+",
+                cast: "Gordon Cormier, Kiawentiio, Ian Ousley",
+                description: "A young boy known as the Avatar must master the four elemental powers to save a world at war — and fight a ruthless enemy bent on stopping him.",
+                videoUrl: "./TvVideos/Avatar.mp4"
+            },
+            {
+                id: "3",
+                title: "The Crown",
+                genre: "drama",
+                image: "./TvImages/Crown.jpg",
+                year: "2023",
+                seasons: "6 Seasons",
+                certificate: "UA-16+",
+                cast: "Imelda Staunton, Jonathan Pryce, Lesley Manville",
+                description: "Based on historical events, this dramatization tells the story of Queen Elizabeth II and the political and personal events that shaped her reign.",
+                videoUrl: "./TvVideos/The Crown.mp4"
+            },
+            {
+                id: "4",
+                title: "Black Mirror",
+                genre: "sci-fi",
+                image: "./TvImages/Black.jpg",
+                year: "2023",
+                seasons: "6 Seasons",
+                certificate: "A",
+                cast: "Aaron Paul, Josh Hartnett, Salma Hayek",
+                description: "This sci-fi anthology series explores a twisted, high-tech near-future where humanity's greatest innovations and darkest instincts collide.",
+                videoUrl: "./TvVideos/Black Mirror.mp4"
+            },
+            {
+                id: "5",
+                title: "Our Planet",
+                genre: "documentary",
+                image: "./TvImages/Planet.jpg",
+                year: "2023",
+                seasons: "2 Seasons",
+                certificate: "U",
+                cast: "David Attenborough",
+                description: "Experience our planet's natural beauty and examine how climate change impacts all living creatures in this ambitious documentary project.",
+                videoUrl: "./TvVideos/OUR PLANET.mp4"
+            },
+            {
+                id: "6",
+                title: "The Witcher",
+                genre: "action",
+                image: "./TvImages/Witch.jpg",
+                year: "2023",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Henry Cavill, Anya Chalotra, Freya Allan",
+                description: "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts.",
+                videoUrl: "./TvVideos/The Witcher.mp4"
+            },
+            {
+                id: "7",
+                title: "Arrested Development",
+                genre: "comedy",
+                image: "./TvImages/Arrest.jpg",
+                year: "2019",
+                seasons: "5 Seasons",
+                certificate: "UA-13+",
+                cast: "Jason Bateman, Portia de Rossi, Will Arnett",
+                description: "The award-winning story of a wealthy family that lost everything, and the one son who had no choice but to keep them all together.",
+                videoUrl: "./TvVideos/Arrested.mp4"
+            },
+            {
+                id: "8",
+                title: "Formula 1: Drive to Survive",
+                genre: "documentary",
+                image: "./TvImages/Form1.jpg",
+                year: "2024",
+                seasons: "6 Seasons",
+                certificate: "UA-16+",
+                cast: "Lewis Hamilton, Max Verstappen, Daniel Ricciardo",
+                description: "Drivers, managers and team owners live life in the fast lane — both on and off the track during one cutthroat season of Formula 1 racing.",
+                videoUrl: "./TvVideos/Form1.mp4"
+            },
+            {
+                id: "9",
+                title: "Bridgerton",
+                genre: "drama",
+                image: "./TvImages/Bridge.jpg",
+                year: "2024",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Nicola Coughlan, Luke Newton, Jonathan Bailey",
+                description: "Wealth, lust, and betrayal set against the backdrop of Regency-era England, seen through the eyes of the powerful Bridgerton family.",
+                videoUrl: "./TvVideos/Bridgerton.mp4"
+            },
+            {
+                id: "10",
+                title: "The Sandman",
+                genre: "sci-fi",
+                image: "./TvImages/Sand.jpg",
+                year: "2022",
+                seasons: "1 Season",
+                certificate: "UA-16+",
+                cast: "Tom Sturridge, Gwendoline Christie, Vivienne Acheampong",
+                description: "After years of imprisonment, Morpheus — the King of Dreams — embarks on a journey across worlds to find what was stolen from him and restore his power.",
+                videoUrl: "./TvVideos/The Sandman.mp4"
+            },
+            {
+                id: "11",
+                title: "Cobra Kai",
+                genre: "action",
+                image: "./TvImages/Cobra.jpg",
+                year: "2024",
+                seasons: "6 Seasons",
+                certificate: "UA-16+",
+                cast: "Ralph Macchio, William Zabka, Xolo Maridueña",
+                description: "Decades after the tournament that changed their lives, the rivalry between Johnny and Daniel reignites in this sequel series to the Karate Kid films.",
+                videoUrl: "./TvVideos/Cobra.mp4"
+            },
+            {
+                id: "12",
+                title: "Brooklyn Nine-Nine",
+                genre: "comedy",
+                image: "./TvImages/Brook.jpg",
+                year: "2021",
+                seasons: "8 Seasons",
+                certificate: "UA-13+",
+                cast: "Andy Samberg, Stephanie Beatriz, Terry Crews",
+                description: "Brilliant but immature detective Jake Peralta conflict-clashes with his straight-laced new captain while handling an eccentric Brooklyn precinct.",
+                videoUrl: "./TvVideos/Brooklyn.mp4"
+            },
+            {
+                id: "13",
+                title: "Peaky Blinders",
+                genre: "drama",
+                image: "./TvImages/Peaky.jpg",
+                year: "2022",
+                seasons: "6 Seasons",
+                certificate: "A",
+                cast: "Cillian Murphy, Helen McCrory, Paul Anderson",
+                description: "A notorious gang in 1919 Birmingham, England, is led by the fierce Tommy Shelby, a crime boss set on moving up in the world no matter the cost.",
+                videoUrl: "./TvVideos/Peaky Blinders.mp4"
+            },
+            {
+                id: "14",
+                title: "Narcos",
+                genre: "action",
+                image: "./TvImages/Narcos.jpg",
+                year: "2017",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Wagner Moura, Boyd Holbrook, Pedro Pascal",
+                description: "The true-life story of the growth and spread of cocaine drug cartels across the globe and the law enforcement efforts to meet them head-on.",
+                videoUrl: "./TvVideos/Narcos.mp4"
+            },
+            {
+                id: "15",
+                title: "Dark",
+                genre: "sci-fi",
+                image: "./TvImages/Dark.jpg",
+                year: "2020",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Louis Hofmann, Oliver Masucci, Jördis Triebel",
+                description: "A missing child sets four families on a frantic hunt for answers as they unearth a mind-bending mystery that spans three generations.",
+                videoUrl: "./TvVideos/Dark.mp4"
+            },
+            {
+                id: "16",
+                title: "The Umbrella Academy",
+                genre: "sci-fi",
+                image: "./TvImages/Umbrella.jpg",
+                year: "2024",
+                seasons: "4 Seasons",
+                certificate: "UA-16+",
+                cast: "Elliot Page, Tom Hopper, David Castañeda",
+                description: "Reunited by their father's death, estranged siblings with extraordinary powers uncover shocking family secrets and a looming threat to humanity.",
+                videoUrl: "./TvVideos/The Umbrella Academy.mp4"
+            },
+            {
+                id: "17",
+                title: "Schitt's Creek",
+                genre: "comedy",
+                image: "./TvImages/Schitt.jpg",
+                year: "2020",
+                seasons: "6 Seasons",
+                certificate: "UA-13+",
+                cast: "Eugene Levy, Catherine O'Hara, Dan Levy",
+                description: "Suddenly broke, the filthy-rich Rose family is forced to relocate to their only remaining asset: an ugly small town they once bought as a joke.",
+                videoUrl: "./TvVideos/Schitts Creek.mp4"
+            },
+            {
+                id: "18",
+                title: "Mindhunter",
+                genre: "drama",
+                image: "./TvImages/Mind.jpg",
+                year: "2019",
+                seasons: "2 Seasons",
+                certificate: "A",
+                cast: "Jonathan Groff, Holt McCallany, Anna Torv",
+                description: "In the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder and awkwardly bonding with real monsters.",
+                videoUrl: "./TvVideos/MIND.mp4"
+            },
+            {
+                id: "19",
+                title: "The Last Dance",
+                genre: "documentary",
+                image: "./TvImages/Dance.jpg",
+                year: "2020",
+                seasons: "1 Season",
+                certificate: "UA-16+",
+                cast: "Michael Jordan, Scottie Pippen, Dennis Rodman",
+                description: "This docuseries chronicles the rise of superstar Michael Jordan and the 1990s Chicago Bulls, featuring never-before-seen footage.",
+                videoUrl: "./TvVideos/The Last Dance.mp4"
+            },
+            {
+                id: "20",
+                title: "Breaking Bad",
+                genre: "drama",
+                image: "./TvImages/BreBa.jpg",
+                year: "2013",
+                seasons: "5 Seasons",
+                certificate: "A",
+                cast: "Bryan Cranston, Aaron Paul, and Anna Gunn",
+                description: "A terminally ill chemistry teacher teams with a former student to manufacture crystal meth to secure his family's future.",
+                videoUrl: "./TvVideos/Breaking Bad.mp4"
+            },
+            {
+                id: "21",
+                title: "BoJack Horseman",
+                genre: "comedy",
+                image: "./TvImages/Bojack.jpg",
+                year: "2020",
+                seasons: "6 Seasons",
+                certificate: "A",
+                cast: "Will Arnett, Aaron Paul, Amy Sedaris",
+                description: "Meet the most beloved sitcom horse of the '90s... 20 years later. He's a curmudgeon with a heart of... not gold, but something like it.",
+                videoUrl: "./TvVideos/BoJack.mp4"
+            },
+            {
+                id: "22",
+                title: "The Dragon Prince",
+                genre: "sci-fi",
+                image: "./TvImages/Dragon.jpg",
+                year: "2024",
+                seasons: "6 Seasons",
+                certificate: "UA-7+",
+                cast: "Jack De Sena, Paula Burrows, Sasha Rojen",
+                description: "An extraordinary discovery inspires two human princes and an elven assassin to team up on an epic quest to bring peace to their warring lands.",
+                videoUrl: "./TvVideos/The Dragon Prince.mp4"
+            },
+            {
+                id: "23",
+                title: "Chef's Table",
+                genre: "documentary",
+                image: "./TvImages/Chef.jpg",
+                year: "2019",
+                seasons: "6 Volumes",
+                certificate: "U",
+                cast: "Massimo Bottura, Dominique Crenn, Jeong Kwan",
+                description: "Go inside the lives and kitchens of six of the world's most renowned international chefs and experience their unique culinary artistry.",
+                videoUrl: "./TvVideos/Chef.mp4"
+            },
+            {
+                id: "24",
+                title: "Wednesday",
+                genre: "Fantasy",
+                image: "./TvImages/Wednesday.jpg",
+                year: "2025",
+                seasons: "2 Seasons",
+                certificate: "UA-16+",
+                cast: "Jenna Ortega, Gwendoline Christie, and Catherine Zeta-Jones",
+                description: "Smart, sarcastic and a little dead inside, Wednesday Addams investigates twisted mysteries while making new friends — and foes — at Nevermore Academy.",
+                videoUrl: "./TvVideos/Wednesday.mp4"
+            },
+            {
+                id: "25",
+                title: "When Life Gives You Tangerines",
+                genre: "Romance",
+                image: "./TvImages/Life.jpg",
+                year: "2025",
+                seasons: "Limited Series",
+                certificate: "UA-13+",
+                cast: "IU, Park Bo-gum, and Moon So-ri",
+                description: "In Jeju, a spirited girl and a steadfast boy's island story blossoms into a lifelong tale of setbacks and triumphs — proving love endures across time.",
+                videoUrl: "./TvVideos/When Life Gives You Tangerines.mp4"
+            },
+            {
+                id: "26",
+                title: "Sweet Tooth",
+                genre: "sci-fi",
+                image: "./TvImages/Sweet.jpg",
+                year: "2024",
+                seasons: "3 Seasons",
+                certificate: "UA-13+",
+                cast: "Christian Convery, Nonso Anozie, Stefania LaVie Owen",
+                description: "On a perilous adventure across a post-apocalyptic world, a lovable boy who's half-human and half-deer searches for a new beginning with a gruff protector.",
+                videoUrl: "./TvVideos/Sweet Tooth.mp4"
+            },
+            {
+                id: "27",
+                title: "Money Heist",
+                genre: "action",
+                image: "./TvImages/Money.jpg",
+                year: "2021",
+                seasons: "5 Parts",
+                certificate: "A",
+                cast: "Álvaro Morte, Úrsula Corberó, Itziar Ituño",
+                description: "Eight thieves take hostages and lock themselves in the Royal Mint of Spain as a criminal mastermind manipulates the police to carry out his plan.",
+                videoUrl: "./TvVideos/Money.mp4"
+            },
+            {
+                id: "28",
+                title: "Succession",
+                genre: "drama",
+                image: "./TvImages/Success.jpg",
+                year: "2023",
+                seasons: "4 Seasons",
+                certificate: "A",
+                cast: "Brian Cox, Jeremy Strong, Sarah Snook",
+                description: "The Roy family is known for controlling the biggest media and entertainment company in the world. However, their world changes when their father steps down.",
+                videoUrl: "./TvVideos/Succession.mp4"
+            },
+            {
+                id: "29",
+                title: "One Piece",
+                genre: "action",
+                image: "./TvImages/One.jpg",
+                year: "2023",
+                seasons: "1 Season",
+                certificate: "UA-13+",
+                cast: "Iñaki Godoy, Mackenyu, Emily Rudd",
+                description: "With his straw hat and ragtag crew, young pirate Monkey D. Luffy goes on an epic voyage for treasure in this live-action adaptation of the popular manga.",
+                videoUrl: "./TvVideos/ONE PIECE.mp4"
+            },
+            {
+                id: "30",
+                title: "The Lincoln Lawyer",
+                genre: "crime",
+                image: "./TvImages/Lincoln.jpg",
+                year: "2026",
+                seasons: "4 Seasons",
+                certificate: "UA-16+",
+                cast: "Manuel Garcia-Rulfo, Neve Campbell, Becki Newton",
+                description: "Hotshot LA defense attorney Mickey Haller will do whatever it takes to win as he navigates the criminal justice system from his trademark Lincoln.",
+                videoUrl: "./TvVideos/The Lincoln.mp4"
+            },
+            {
+                id: "31",
+                title: "Love, Death & Robots",
+                genre: "sci-fi",
+                image: "./TvImages/Love.jpg",
+                year: "2025",
+                seasons: "4 Volumes",
+                certificate: "A",
+                cast: "Joe Manganiello, Rosario Dawson, and Seth Green",
+                description: "Terrifying creatures, wicked surprises and dark comedy converge in this NSFW anthology of animated stories presented by Tim Miller and David Fincher.",
+                videoUrl: "./TvVideos/LOVE.mp4"
+            },
+            {
+                id: "32",
+                title: "Seinfeld",
+                genre: "comedy",
+                image: "./TvImages/Sein.jpg",
+                year: "1998",
+                seasons: "9 Seasons",
+                certificate: "UA-13+",
+                cast: "Jerry Seinfeld, Julia Louis-Dreyfus, Michael Richards",
+                description: "This Emmy-winning 'show about nothing' follows the neurotic New York stand-up comic Jerry Seinfeld and his equally eccentric circle of friends.",
+                videoUrl: "./TvVideos/Seinfeld.mp4"
+            },
+            {
+                id: "33",
+                title: "All of Us Are Dead",
+                genre: "Horror",
+                image: "./TvImages/All.jpg",
+                year: "2022",
+                seasons: "1 Season",
+                certificate: "A",
+                cast: "Park Ji-hu, Yoon Chan-young, Cho Yi-hyun",
+                description: "A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected.",
+                videoUrl: "./TvVideos/All.mp4"
+            },
+            {
+                id: "34",
+                title: "Vikings: Valhalla",
+                genre: "action",
+                image: "./TvImages/Vick.jpg",
+                year: "2024",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Sam Corlett, Leo Suter, Frida Gustavsson",
+                description: "In this sequel to 'Vikings', a new generation of heroic legends rises to forge their own destinies — and make history in a changing, violent world.",
+                videoUrl: "./TvVideos/Vikings-Valhalla.mp4"
+            },
+            {
+                id: "35",
+                title: "The Walking Dead",
+                genre: "Horror",
+                image: "./TvImages/Walk.jpg",
+                year: "2021",
+                seasons: "11 Seasons",
+                certificate: "A",
+                cast: "Andrew Lincoln, Norman Reedus, and Melissa McBride",
+                description: "In the wake of a zombie apocalypse, survivors hold on to the hope of humanity by banding together to wage a fight for their own survival.",
+                videoUrl: "./TvVideos/The Walking Dead.mp4"
+            },
+            {
+                id: "36",
+                title: "Alice in Borderland",
+                genre: "sci-fi",
+                image: "./TvImages/Alice.jpg",
+                year: "2022",
+                seasons: "2 Seasons",
+                certificate: "A",
+                cast: "Kento Yamazaki, Tao Tsuchiya, Nijiro Murakami",
+                description: "An aimless gamer and his two friends find themselves transported to a parallel, empty version of Tokyo, where they're forced to compete in sadistic games to survive.",
+                videoUrl: "./TvVideos/Alice.mp4"
+            },
+            {
+                id: "37",
+                title: "King the Land",
+                genre: "Romance",
+                image: "./TvImages/King.jpg",
+                year: "2023",
+                seasons: "Limited Series",
+                certificate: "UA-13+",
+                cast: "Lee Jun-ho, Lim Yoon-a, and Go Won-hee",
+                description: "Amid a tense inheritance fight, a charming heir clashes with his hardworking employee who's known for her irresistible smile — which he cannot stand.",
+                videoUrl: "./TvVideos/King.mp4"
+            },
+            {
+                id: "38",
+                title: "Narcos: Mexico",
+                genre: "action",
+                image: "./TvImages/Mexico.jpg",
+                year: "2021",
+                seasons: "3 Seasons",
+                certificate: "A",
+                cast: "Diego Luna, Michael Peña, Scoot McNairy",
+                description: "Witness the rise of the Guadalajara Cartel in the 1980s as an American DEA agent uncovers the dangerous world of Mexican drug trafficking.",
+                videoUrl: "./TvVideos/Narcos-Mexico.mp4"
+            },
+            {
+                id: "39",
+                title: "Monster",
+                genre: "documentary",
+                image: "./TvImages/Monster.jpg",
+                year: "2024",
+                seasons: "2 Seasons",
+                certificate: "A",
+                cast: "Cooper Koch, Nicholas Alexander Chavez, Javier Bardem",
+                description: "This true-crime anthology series dives into the complex stories and dark minds behind some of history's most notorious criminal figures.",
+                videoUrl: "./TvVideos/MONSTER.mp4"
+            },
+            {
+                id: "40",
+                title: "The Night Agent",
+                genre: "crime",
+                image: "./TvImages/Agent.jpg",
+                year: "2026",
+                seasons: "3 Seasons",
+                certificate: "UA-16+",
+                cast: "Gabriel Basso, Luciane Buchanan, and Hong Chau",
+                description: "Recruited by a secret U.S. intelligence program, agent Peter Sutherland must unravel a political conspiracy to prevent a terrorist attack.",
+                videoUrl: "./TvVideos/The Night Agent.mp4"
+            }
+        ];
+
+        // ... [Keep the showsData array identical to your previous file] ...
+
+        let wishlist = JSON.parse(localStorage.getItem('netflix-wishlist')) || [];
+
+        const gridContainer = document.getElementById('mylist-grid');
+        const emptyMessage = document.getElementById('empty-message');
+
+        // Modal Elements DOM Selection
+        const movieModal = document.getElementById('movie-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const videoPlayerContainer = document.getElementById('video-player-container');
+        const closePlayerBtn = document.getElementById('close-player');
+        const mainVideo = document.getElementById('main-video');
+
+        function displayMyList() {
+            gridContainer.innerHTML = "";
+            const savedShows = showsData.filter(show => wishlist.includes(show.id));
+
+            if (savedShows.length === 0) {
+                if (emptyMessage) emptyMessage.style.display = "block";
+                return;
+            }
+
+            if (emptyMessage) emptyMessage.style.display = "none";
+
+            savedShows.forEach(show => {
+                const card = document.createElement('div');
+                card.classList.add('show-card');
+
+                card.innerHTML = `
+            <div class="poster-container">
+                <div class="wishlist-btn added" data-id="${show.id}">✓</div>
+                <img src="${show.image}" alt="${show.title}" loading="lazy">
+            </div>
+            <div class="show-title">${show.title}</div>
+        `;
+
+                const btn = card.querySelector('.wishlist-btn');
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents details page from opening when removing
+                    removeFromWishlist(show.id);
+                });
+
+                card.addEventListener('click', () => {
+                    openMovieDetails(show);
+                });
+
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function openMovieDetails(show) {
+            document.getElementById('modal-img').src = show.image;
+            document.getElementById('modal-title').innerText = show.title;
+            document.getElementById('modal-year').innerText = show.year;
+            document.getElementById('modal-cert').innerText = show.certificate;
+            document.getElementById('modal-seasons').innerText = show.seasons;
+            document.getElementById('modal-desc').innerText = show.description;
+            document.getElementById('modal-genre').innerText = show.genre;
+            document.getElementById('modal-cast').innerText = show.cast;
+
+            mainVideo.src = show.videoUrl;
+
+            const playBtn = document.getElementById('modal-play-btn');
+            playBtn.onclick = () => {
+                videoPlayerContainer.style.display = 'block';
+                mainVideo.play();
+            };
+
+            movieModal.style.display = 'flex';
+        }
+
+        function hideModal() {
+            movieModal.style.display = 'none';
+            closeVideoPlayer();
+        }
+
+        function closeVideoPlayer() {
+            mainVideo.pause();
+            mainVideo.currentTime = 0;
+            videoPlayerContainer.style.display = 'none';
+        }
+
+        if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+        if (closePlayerBtn) closePlayerBtn.addEventListener('click', closeVideoPlayer);
+
+        window.addEventListener('click', (e) => {
+            if (e.target === movieModal) {
+                hideModal();
+            }
+        });
+
+        function removeFromWishlist(id) {
+            wishlist = wishlist.filter(item => item !== id);
+            localStorage.setItem('netflix-wishlist', JSON.stringify(wishlist));
+            displayMyList();
+        }
+
+        displayMyList();
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeBtn = document.getElementById("close-btn");
+
+
+        // Open Menu
+
+        hamburger.addEventListener("click", () => {
+
+            mobileMenu.classList.add("active");
+
+        });
+
+
+        // Close Menu
+
+        closeBtn.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("active");
+
+        });
+
+    </script>
+
+</body>
+
+</html>

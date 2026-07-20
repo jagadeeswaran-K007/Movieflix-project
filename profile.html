@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Profiles</title>
+    <link rel="icon" type="image/png" href="images/netflix.png">
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+
+
+    <div class="profile-container">
+
+        <h1>Who's Watching?</h1>
+
+        <div class="profiles" id="profiles">
+
+</div>
+
+        <button id="manage-btn">Manage Profiles</button>
+
+
+
+    </div>
+
+    <!-- Manage Profiles Modal -->
+
+    <div class="manage-modal" id="manage-modal">
+
+        <div class="modal-content">
+
+            <h2>Manage Profiles</h2>
+
+            <p id="profile-count">Profiles : 4 / 5</p>
+
+            <div id="profile-list">
+
+            </div>
+
+            <input type="text" id="profile-name" placeholder="Enter Profile Name">
+
+            <button id="add-profile-btn">
+                Add Profile
+            </button>
+
+            <button id="close-modal">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        /*==================================================
+                        PROFILE CONTAINER
+        ==================================================*/
+
+        const profilesContainer = document.getElementById("profiles");
+
+
+        /*==================================================
+                        HAMBURGER MENU
+        ==================================================*/
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener("click", () => {
+                mobileMenu.classList.toggle("active");
+            });
+        }
+
+
+        /*==================================================
+                        MANAGE PROFILE ELEMENTS
+        ==================================================*/
+
+        const manageBtn = document.getElementById("manage-btn");
+        const modal = document.getElementById("manage-modal");
+        const closeBtn = document.getElementById("close-modal");
+
+        const addProfileBtn = document.getElementById("add-profile-btn");
+        const profileNameInput = document.getElementById("profile-name");
+
+        const profileList = document.getElementById("profile-list");
+        const profileCount = document.getElementById("profile-count");
+
+
+        /*==================================================
+                        PROFILE DATA
+        ==================================================*/
+
+        let profiles = [
+
+            {
+                name: "Rupesh",
+                image: "images/profile1.jpg"
+            },
+
+            {
+                name: "Mukesh",
+                image: "images/profile2.jpg"
+            },
+
+            {
+                name: "Jagadeeswaran",
+                image: "images/profile3.jpg"
+            },
+
+            {
+                name: "Shruthi",
+                image: "images/profile4.jpg"
+            }
+
+        ];
+
+
+        /*==================================================
+                        OPEN MODAL
+        ==================================================*/
+
+        if (manageBtn && modal) {
+
+            manageBtn.addEventListener("click", () => {
+
+                modal.classList.add("active");
+                renderManageProfiles();
+
+            });
+
+        }
+
+
+        /*==================================================
+                        CLOSE MODAL
+        ==================================================*/
+
+        if (closeBtn && modal) {
+
+            closeBtn.addEventListener("click", () => {
+
+                modal.classList.remove("active");
+
+            });
+
+        }
+
+
+        /*==================================================
+                        RENDER PROFILE CARDS
+        ==================================================*/
+
+        function renderProfileCards() {
+
+            if (!profilesContainer) return;
+
+            profilesContainer.innerHTML = "";
+
+            profiles.forEach((profile) => {
+
+                profilesContainer.innerHTML += `
+
+                <div class="profile-card"
+                     onclick="window.location.href='home.html'">
+
+                    <img src="${profile.image}" alt="${profile.name}">
+
+                    <p>${profile.name}</p>
+
+                </div>
+
+                `;
+
+            });
+
+        }
+
+
+        /*==================================================
+                        RENDER MANAGE PROFILES
+        ==================================================*/
+
+        function renderManageProfiles() {
+
+            if (!profileList || !profileCount) return;
+
+            profileList.innerHTML = "";
+
+            profiles.forEach((profile, index) => {
+
+                profileList.innerHTML += `
+
+                <div class="manage-profile-card">
+
+
+                    <h3>${profile.name}</h3>
+
+
+                    <img src="${profile.image}" 
+                         alt="${profile.name}">
+
+
+                    <button onclick="deleteProfile(${index})">
+
+                        Delete
+
+                    </button>
+
+
+                </div>
+
+                `;
+
+            });
+
+
+            profileCount.innerText = `Profiles : ${profiles.length} / 5`;
+
+        }
+
+
+        /*==================================================
+                        ADD PROFILE
+        ==================================================*/
+
+        if (addProfileBtn) {
+
+            addProfileBtn.addEventListener("click", () => {
+
+                const name = profileNameInput.value.trim();
+
+
+                // Empty Validation
+
+                if (name === "") {
+
+                    alert("Please enter a profile name.");
+                    return;
+
+                }
+
+
+                // Maximum Profiles Validation
+
+                if (profiles.length >= 5) {
+
+                    alert("Maximum 5 profiles are allowed.");
+                    return;
+
+                }
+
+
+                // Duplicate Profile Validation
+
+                if (profiles.some(profile => profile.name === name)) {
+
+                    alert("Profile already exists.");
+                    return;
+
+                }
+
+
+                // Add New Profile
+
+                profiles.push({
+
+                    name: name,
+
+                    image: "images/profile1.jpg"
+
+                });
+
+
+                // Clear Input Field
+
+                profileNameInput.value = "";
+
+
+                // Refresh Both Sections
+
+                renderManageProfiles();
+                renderProfileCards();
+
+
+            });
+
+        }
+
+
+        /*==================================================
+                        DELETE PROFILE
+        ==================================================*/
+
+        function deleteProfile(index) {
+
+
+            // Minimum One Profile Validation
+
+            if (profiles.length === 1) {
+
+                alert("At least one profile is required.");
+                return;
+
+            }
+
+
+            // Delete Selected Profile
+
+            profiles.splice(index, 1);
+
+
+            // Refresh Both Sections
+
+            renderManageProfiles();
+            renderProfileCards();
+
+        }
+
+
+        /*==================================================
+                        INITIAL PAGE LOAD
+        ==================================================*/
+
+        renderProfileCards();
+        renderManageProfiles();
+    </script>
+
+</body>
+
+</html>

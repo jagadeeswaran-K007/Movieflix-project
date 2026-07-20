@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetflixFlix | Movies</title>
+    <link rel="stylesheet" href="Movies.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="logo">NETFLIX</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="movies.html" class="active">Movies</a></li>
+            <li><a href="tvShows.html">Tv shows</a></li>
+            <li><a href="myList.html">My list</a></li>
+            <li><a href="profile.html">Login</a></li>
+        </ul>
+    </nav>
+    <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <div class="logo">NETFLIX</div>
+        <div class="hamburger" id="hamburger">☰</div>
+    </nav>
+
+    <!-- Mobile Side Dropdown Menu -->
+    <div class="mobile-dropdown" id="mobileDropdown">
+        <div class="close-menu" id="closeMenu">×</div>
+        <ul class="mobile-nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="movies.html" class="active">Movies</a></li>
+            <li><a href="tvShows.html">Tv shows</a></li>
+            <li><a href="myList.html">My list</a></li>
+            <li><a href="profile.html">Login</a></li>
+        </ul>
+    </div>
+    </nav>
+
+
+    <!-- ================= HEADER ================= -->
+    <section class="movies-header" style="text-align: center; padding: 120px 20px 40px;">
+        <h1>Explore Movies</h1>
+        <p>Browse the latest action, comedy, sci-fi, drama, horror and more.</p>
+    </section>
+
+    <!-- ================= SEARCH ================= -->
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search movies...">
+        </div>
+    </section>
+
+    <!-- ================= FILTER ================= -->
+    <section class="filter-section">
+        <button class="filter-btn active" data-category="All">All</button>
+        <button class="filter-btn" data-category="Action">Action</button>
+        <button class="filter-btn" data-category="Comedy">Comedy</button>
+        <button class="filter-btn" data-category="Drama">Drama</button>
+        <button class="filter-btn" data-category="Sci-Fi">Sci-Fi</button>
+        <button class="filter-btn" data-category="Horror">Horror</button>
+    </section>
+
+    <!-- ================= MOVIES CONTAINER ================= -->
+    <section class="movies-container">
+        <div id="movieGrid" class="movie-grid">
+
+            <!-- Interstellar -->
+            <div class="movie-card">
+                <img src="images/interstellar.jpg" alt="Interstellar">
+                <div class="movie-info">
+                    <h3>Interstellar</h3>
+                    <p class="genre">Sci-Fi</p>
+                    <p class="rating">⭐ 9.0</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/zSWdZVtXT7E">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beast -->
+            <div class="movie-card">
+                <img src="images/Beast.jpg" alt="Beast">
+                <div class="movie-info">
+                    <h3>Beast</h3>
+                    <p class="genre">Action</p>
+                    <p class="rating">⭐ 8.3</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/0E1kVRRi6lk">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Jananayagan -->
+            <div class="movie-card">
+                <img src="images/Jananayagan.jpg" alt="Beast">
+                <div class="movie-info">
+                    <h3>Jananayagan</h3>
+                    <p class="genre">Action/Drama</p>
+                    <p class="rating">⭐ 9.3</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/fJaAYcERf3Y">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Joker -->
+            <div class="movie-card">
+                <img src="images/joker.jpg" alt="Joker">
+                <div class="movie-info">
+                    <h3>Joker</h3>
+                    <p class="genre">Drama</p>
+                    <p class="rating">⭐ 8.5</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/zAGVQLHvwOY">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar -->
+            <div class="movie-card">
+                <img src="images/avatar.jpg" alt="Avatar">
+                <div class="movie-info">
+                    <h3>Avatar</h3>
+                    <p class="genre">Sci-Fi</p>
+                    <p class="rating">⭐ 8.8</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/5PSNL1qE6VY">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master -->
+            <div class="movie-card">
+                <img src="images/master.jpg" alt="Master">
+                <div class="movie-info">
+                    <h3>Master</h3>
+                    <p class="genre">Action</p>
+                    <p class="rating">⭐ 8.4</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/UTiXQcrLlv4">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+            <!-- King of Kotha -->
+            <div class="movie-card">
+                <img src="images/King Of Kotha.jpg" alt="Interstellar">
+                <div class="movie-info">
+                    <h3>King of kotha</h3>
+                    <p class="genre">Action</p>
+                    <p class="rating">⭐ 9.0</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed//dljEVygvwG8">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leo -->
+            <div class="movie-card">
+                <img src="images/leo.jpg" alt="Leo">
+                <div class="movie-info">
+                    <h3>Leo</h3>
+                    <p class="genre">Action</p>
+                    <p class="rating">⭐ 8.7</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/Po3jStA673E">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inception -->
+            <div class="movie-card">
+                <img src="images/Inception.jpg" alt="Inception">
+                <div class="movie-info">
+                    <h3>Inception</h3>
+                    <p class="genre">Sci-Fi</p>
+                    <p class="rating">⭐ 8.8</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/YoHD9XEInc0">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Shawshank Redemption -->
+            <div class="movie-card">
+                <img src="images/The Shawshank Redemption.jpg" alt="The Shawshank Redemption">
+                <div class="movie-info">
+                    <h3>The Shawshank Redemption</h3>
+                    <p class="genre">Drama</p>
+                    <p class="rating">⭐ 9.3</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/6hB3S9bIaco">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- John Wick -->
+            <div class="movie-card">
+                <img src="images/Jhon-Wick.jpg" alt="John Wick">
+                <div class="movie-info">
+                    <h3>John Wick</h3>
+                    <p class="genre">Action</p>
+                    <p class="rating">⭐ 7.4</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/2AUmvWm5ZDQ">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Get Out -->
+            <div class="movie-card">
+                <img src="images/Get-out.jpg" alt="Get Out">
+                <div class="movie-info">
+                    <h3>Get Out</h3>
+                    <p class="genre">Horror</p>
+                    <p class="rating">⭐ 7.7</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/DzfpyUB60YY">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A Quiet Place -->
+            <div class="movie-card">
+                <img src="images/Quiet-place.jpg" alt="A Quiet Place">
+                <div class="movie-info">
+                    <h3>A Quiet Place</h3>
+                    <p class="genre">Horror</p>
+                    <p class="rating">⭐ 7.5</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/WR7cc5t7tv8">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Superbad -->
+            <div class="movie-card">
+                <img src="images/Superbad.jpg" alt="Superbad">
+                <div class="movie-info">
+                    <h3>Superbad</h3>
+                    <p class="genre">Comedy</p>
+                    <p class="rating">⭐ 7.6</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/LvKvus3vCEY">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Hangover -->
+            <div class="movie-card">
+                <img src="images/The Hangover.jpg" alt="The Hangover">
+                <div class="movie-info">
+                    <h3>The Hangover</h3>
+                    <p class="genre">Comedy</p>
+                    <p class="rating">⭐ 7.7</p>
+                    <div class="movie-buttons">
+                        <button class="trailer-btn" data-trailer="https://www.youtube.com/embed/tcdUhdOlz9M">▶
+                            Trailer</button>
+                        <button class="list-btn">❤ My List</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= TRAILER MODAL ================= -->
+    <div class="modal" id="trailerModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="trailerFrame" width="100%" height="500" src="" title="Movie Trailer" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>© 2026 NetFlix. All Rights Reserved.</p>
+    </footer>
+    <script>
+
+        // Select Elements
+        // ===============================
+        const searchInput = document.getElementById("searchInput");
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const movieGrid = document.getElementById("movieGrid");
+        const movieCards = document.querySelectorAll(".movie-card");
+        const modal = document.getElementById("trailerModal");
+        const trailerFrame = document.getElementById("trailerFrame");
+        const closeBtn = document.querySelector(".close");
+
+        let activeCategory = "All";
+
+
+        // "No Results" Message
+        // ===============================
+        const noResults = document.createElement("p");
+        noResults.className = "no-results";
+        noResults.textContent = "No movies found. Try a different search or filter.";
+        noResults.style.display = "none";
+        if (movieGrid) movieGrid.appendChild(noResults);
+
+
+        // Filtering Logic
+        // ===============================
+        function applyFilters() {
+            if (!searchInput || !movieCards) return;
+            const query = searchInput.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            movieCards.forEach((card) => {
+                const titleEl = card.querySelector("h3");
+                const genreEl = card.querySelector(".genre");
+                if (!titleEl || !genreEl) return;
+
+                const title = titleEl.textContent.trim().toLowerCase();
+                const genre = genreEl.textContent.trim().toLowerCase();
+
+                const matchesSearch = title.includes(query);
+                const matchesGenre = activeCategory === "All" || genre === activeCategory.toLowerCase();
+
+                if (matchesSearch && matchesGenre) {
+                    card.style.display = "";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (noResults) noResults.style.display = visibleCount === 0 ? "block" : "none";
+        }
+
+        if (searchInput) searchInput.addEventListener("input", applyFilters);
+
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+                activeCategory = btn.dataset.category || "All";
+                applyFilters();
+            });
+        });
+
+
+        // Trailer Modal Controls
+        // ===============================
+        const trailerBtns = document.querySelectorAll(".trailer-btn");
+        trailerBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const trailerUrl = btn.dataset.trailer;
+                if (!trailerUrl || !trailerFrame || !modal) return;
+                trailerFrame.src = trailerUrl + "?autoplay=1";
+                modal.style.display = "flex";
+            });
+        });
+
+        function closeModal() {
+            if (modal) modal.style.display = "none";
+            if (trailerFrame) trailerFrame.src = "";
+        }
+
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal && modal.style.display === "flex") {
+                closeModal();
+            }
+        });
+
+
+        // My List LocalStorage Management
+        // ===============================
+        function getMyList() {
+            return JSON.parse(localStorage.getItem("myList") || "[]");
+        }
+
+        function saveMyList(list) {
+            localStorage.setItem("myList", JSON.stringify(list));
+        }
+
+        function refreshListButtons() {
+            const myList = getMyList();
+            movieCards.forEach((card) => {
+                const titleEl = card.querySelector("h3");
+                const listBtn = card.querySelector(".list-btn");
+                if (!titleEl || !listBtn) return;
+
+                const title = titleEl.textContent.trim();
+                if (myList.includes(title)) {
+                    listBtn.textContent = "✔ In My List";
+                    listBtn.classList.add("added");
+                } else {
+                    listBtn.textContent = "❤ My List";
+                    listBtn.classList.remove("added");
+                }
+            });
+        }
+
+        const listBtns = document.querySelectorAll(".list-btn");
+        listBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const card = btn.closest(".movie-card");
+                if (!card) return;
+                const titleEl = card.querySelector("h3");
+                if (!titleEl) return;
+
+                const title = titleEl.textContent.trim();
+                let myList = getMyList();
+
+                if (myList.includes(title)) {
+                    myList = myList.filter((t) => t !== title);
+                } else {
+                    myList.push(title);
+                }
+
+                saveMyList(myList);
+                refreshListButtons();
+            });
+        });
+
+        // Initialize
+        refreshListButtons();
+        console.log("🎬 StreamFlix Movies Dashboard Loaded Successfully");
+        // Mobile Sidebar Control Selectors
+        // ===============================
+        const hamburger = document.getElementById("hamburger");
+        const closeMenu = document.getElementById("closeMenu");
+        const mobileDropdown = document.getElementById("mobileDropdown");
+
+        // Open Drawer Panel Link
+        if (hamburger && mobileDropdown) {
+            hamburger.addEventListener("click", () => {
+                mobileDropdown.classList.add("open");
+            });
+        }
+
+        // Dismiss Menu Drawers
+        function handleCloseMenu() {
+            if (mobileDropdown) mobileDropdown.classList.remove("open");
+        }
+
+        if (closeMenu) closeMenu.addEventListener("click", handleCloseMenu);
+
+        // Accessibility Option: Hitting escape dismisses open sidebar 
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                handleCloseMenu();
+            }
+        });
+    </script>
+</body>
+
+</html>

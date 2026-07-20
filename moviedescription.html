@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | Movie Details</title>
+    <link rel="icon" type="image/png" href="images/netflix.png">
+    <link rel="stylesheet" href="moviedescription.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h1>NETFLIX</h1>
+
+        <button onclick="window.location.href='home.html'">
+
+            Back
+
+        </button>
+
+    </nav>
+
+
+    <!-- Movie Card -->
+
+    <div class="movie-card">
+
+
+        <!-- Poster -->
+
+        <div class="movie-left">
+
+            <img id="movie-poster">
+
+        </div>
+
+
+
+        <!-- Movie Details -->
+
+        <div class="movie-right">
+
+            <h1 id="movie-title"></h1>
+
+
+            <p id="movie-match"></p>
+
+
+            <p id="movie-rating"></p>
+
+
+            <p id="movie-release"></p>
+
+
+            <p id="movie-runtime"></p>
+
+
+            <p id="movie-language"></p>
+
+
+            <p id="movie-genres"></p>
+
+
+            <p id="movie-adult"></p>
+
+
+            <p id="movie-overview"></p>
+
+
+
+            <!-- Buttons -->
+
+            <div class="movie-buttons">
+
+                <button id="trailer-btn">
+
+                    ▶ Watch Trailer
+
+                </button>
+
+
+                <button id="my-list-btn">
+
+                    + My List
+
+                </button>
+
+
+                <button id="share-btn">
+
+                    Share
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Trailer Modal -->
+
+    <div class="trailer-modal">
+
+        <div class="trailer-box">
+
+            <span class="close-trailer">
+
+                &times;
+
+            </span>
+
+            <iframe id="trailer-frame" allowfullscreen>
+
+            </iframe>
+
+        </div>
+
+    </div>
+
+    <!-- Share Modal -->
+
+    <div class="share-modal">
+
+        <div class="share-box">
+
+            <span class="close-share">&times;</span>
+
+            <h2>Share Movie</h2>
+
+            <button id="whatsapp-btn">
+                WhatsApp
+            </button>
+
+            <button id="telegram-btn">
+                Telegram
+            </button>
+
+            <button id="gmail-btn">
+                Gmail
+            </button>
+
+            <button id="facebook-btn">
+                Facebook
+            </button>
+
+            <button id="twitter-btn">
+                Twitter
+            </button>
+
+            <button id="copy-btn">
+                Copy Link
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="api.js"></script>
+    <script src="moviedescription.js"></script>
+
+</body>
+
+</html>

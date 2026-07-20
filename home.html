@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/netflix.png">
+    <title>Netflix</title>
+
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <h1>NETFLIX</h1>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="tvShows.html">Tv shows</a></li>
+            <li><a href="myList.html">My list</a></li>
+            <li><a href="profile.html">Login</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Mobile Navbar -->
+
+    <nav class="mobile-navbar">
+
+        <h1>NETFLIX</h1>
+
+        <div class="hamburger" id="hamburger">
+            ☰
+        </div>
+
+    </nav>
+
+
+    <!-- Mobile Menu Overlay -->
+
+    <div class="mobile-menu" id="mobile-menu">
+
+        <div class="close-btn" id="close-btn">
+            &times;
+        </div>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="movies.html">Movies</a></li>
+            <li><a href="tvShows.html">Tv shows</a></li>
+            <li><a href="myList.html">My list</a></li>
+            <li><a href="profile.html">Login</a></li>
+        </ul>
+
+    </div>
+    </div>
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h2>Unlimited Movies, TV Shows and More.</h2>
+            <p>Watch anywhere. Cancel anytime.</p>
+        </div>
+
+    </section>
+
+
+
+    <!-- Trending Movies -->
+
+    <section class="movie-section">
+
+
+        <h2>Trending Now</h2>
+
+        <div class="movie-row" id="trending"></div>
+
+    </section>
+
+
+
+
+    <!-- Popular Movies -->
+
+    <section class="movie-section">
+
+        <h2>Popular Movies</h2>
+
+        <div class="movie-row" id="popular"></div>
+
+    </section>
+
+
+
+    <!-- Top Rated Movies -->
+
+    <section class="movie-section">
+
+        <h2>Top Rated Movies</h2>
+
+        <div class="movie-row" id="toprated"></div>
+
+    </section>
+
+
+
+    <!-- Action Movies -->
+
+    <section class="movie-section">
+
+        <h2>Action Movies</h2>
+
+        <div class="movie-row" id="action"></div>
+
+    </section>
+
+
+    <script src="api.js"></script>
+    <script src="home.js"></script>
+
+</body>
+
+</html>
